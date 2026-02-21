@@ -259,10 +259,22 @@ function Editorial({ flip, imgSrc, num, label, h, em, body, cta, ctaHref }) {
 }
 
 function FullBleed({ src, caption }) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect()
+      const offset = rect.top * 0.4
+      el.querySelector('img').style.transform = `translateY(${offset}px)`
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
   return (
-    <div className="fullbleed">
+    <div ref={ref} className="fullbleed" style={{overflow:'hidden'}}>
       <div className="fullbleed-overlay"/>
-      <LazyImg src={src} alt={caption||''} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+      <LazyImg src={src} alt={caption||''} style={{width:'100%',height:'120%',objectFit:'cover',willChange:'transform'}}/>
       {caption&&<p className="fullbleed-caption">{caption}</p>}
     </div>
   )
