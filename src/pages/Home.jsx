@@ -27,7 +27,6 @@ import d8 from '../assets/images/dish-8.jpg'
 import c1 from '../assets/images/coffee-1.jpg'
 import c2 from '../assets/images/coffee-2.jpg'
 
-/* ── DATA ── */
 const SLIDES = [
   { img:h1, label:'Rustic · Brick · Dark Wood',   h:'Continental Dining,',        em:'Faisalabad\'s Finest.' },
   { img:h2, label:'Sunday Brunch · 11 AM – 2 PM', h:'The Brunch That Became',     em:'A Tradition.' },
@@ -81,11 +80,9 @@ const REVIEWS = [
 ]
 
 const NAV_SECTIONS = ['menu','brunch','hitea','events','reserve']
-
 const fade  = (d=0) => ({ initial:{opacity:0,y:32}, whileInView:{opacity:1,y:0}, viewport:{once:true,margin:'-80px'}, transition:{duration:1,delay:d,ease:[0.22,1,0.36,1]} })
 const fadeL = (d=0) => ({ initial:{opacity:0,x:-32}, whileInView:{opacity:1,x:0}, viewport:{once:true,margin:'-80px'}, transition:{duration:1,delay:d,ease:[0.22,1,0.36,1]} })
 
-/* ── LAZY IMAGE ── */
 function LazyImg({ src, alt, className, style }) {
   const ref = useRef(null)
   const [loaded, setLoaded] = useState(false)
@@ -99,19 +96,12 @@ function LazyImg({ src, alt, className, style }) {
     return () => obs.disconnect()
   }, [src])
   return (
-    <img
-      ref={ref}
-      alt={alt || ''}
-      className={className}
-      style={{ ...style, transition: 'opacity 0.4s', opacity: loaded ? 1 : 0 }}
-      onLoad={() => setLoaded(true)}
-    />
+    <img ref={ref} alt={alt||''} className={className}
+      style={{...style, transition:'opacity 0.4s', opacity:loaded?1:0}}
+      onLoad={() => setLoaded(true)}/>
   )
 }
 
-/* ════════════════════════════════════════════
-   NAV
-════════════════════════════════════════════ */
 function Nav({ scrolled, activeSection }) {
   const [open, setOpen] = useState(false)
   const links = [
@@ -124,22 +114,20 @@ function Nav({ scrolled, activeSection }) {
   return (
     <>
       <nav className={`nav${scrolled?' scrolled':''}`}>
-        <a href="#" className="nav-logo" style={{textDecoration:'none',cursor:'pointer'}}>
+        <a href="#" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}}
+          className="nav-logo" style={{textDecoration:'none',cursor:'pointer'}}>
           PORTOBELLO
           <span>Café · Faisalabad</span>
         </a>
         <ul className="nav-links">
           {links.map(l=>(
             <li key={l.label}>
-              <a href={l.href}
-                style={{
-                  borderBottom: activeSection===l.href.replace('#','') ? '1px solid var(--gold)' : '1px solid transparent',
-                  paddingBottom:'2px',
-                  color: activeSection===l.href.replace('#','') ? 'var(--gold)' : '',
-                  transition:'all 0.3s'
-                }}>
-                {l.label}
-              </a>
+              <a href={l.href} style={{
+                borderBottom: activeSection===l.href.replace('#','') ? '1px solid var(--gold)' : '1px solid transparent',
+                paddingBottom:'2px',
+                color: activeSection===l.href.replace('#','') ? 'var(--gold)' : '',
+                transition:'all 0.3s'
+              }}>{l.label}</a>
             </li>
           ))}
         </ul>
@@ -161,7 +149,7 @@ function Nav({ scrolled, activeSection }) {
               <a key={l.label} href={l.href} onClick={()=>setOpen(false)}
                 style={{fontFamily:'var(--sans)',fontSize:'13px',letterSpacing:'0.18em',
                   textTransform:'uppercase',
-                  color: activeSection===l.href.replace('#','') ? 'var(--gold)' : 'rgba(255,255,255,0.5)',
+                  color:activeSection===l.href.replace('#','') ? 'var(--gold)' : 'rgba(255,255,255,0.5)',
                   fontWeight:500}}>
                 {l.label}
               </a>
@@ -185,9 +173,6 @@ function Nav({ scrolled, activeSection }) {
   )
 }
 
-/* ════════════════════════════════════════════
-   HERO
-════════════════════════════════════════════ */
 function Hero() {
   const [slide, setSlide] = useState(0)
   const s = SLIDES[slide]
@@ -208,17 +193,14 @@ function Hero() {
           <div className="hero-eyebrow-line"/>
           <AnimatePresence mode="wait">
             <motion.span key={slide} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}
-              transition={{duration:0.5}} className="t-label">
-              {s.label}
-            </motion.span>
+              transition={{duration:0.5}} className="t-label">{s.label}</motion.span>
           </AnimatePresence>
         </motion.div>
         <AnimatePresence mode="wait">
           <motion.h1 key={slide} className="hero-h1"
             initial={{opacity:0,y:36}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-24}}
             transition={{duration:0.95,ease:[0.22,1,0.36,1]}}>
-            {s.h}
-            <em>{s.em}</em>
+            {s.h}<em>{s.em}</em>
           </motion.h1>
         </AnimatePresence>
         <motion.p className="hero-sub"
@@ -228,18 +210,13 @@ function Hero() {
         </motion.p>
         <motion.div className="hero-actions"
           initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{duration:0.9,delay:0.65}}>
-          <a href="#reserve" className="btn-primary">
-            <Calendar size={13}/> Book a Table
-          </a>
-          <a href="#menu" className="btn-ghost">
-            See the Menu <ArrowRight size={13}/>
-          </a>
+          <a href="#reserve" className="btn-primary"><Calendar size={13}/> Book a Table</a>
+          <a href="#menu" className="btn-ghost">See the Menu <ArrowRight size={13}/></a>
         </motion.div>
       </div>
       <div className="slide-dots" style={{zIndex:3}}>
         {SLIDES.map((_,i)=>(
-          <button key={i} onClick={()=>setSlide(i)}
-            className={`slide-dot${i===slide?' active':''}`}/>
+          <button key={i} onClick={()=>setSlide(i)} className={`slide-dot${i===slide?' active':''}`}/>
         ))}
       </div>
       <div className="hero-scroll" style={{zIndex:3}}>
@@ -250,38 +227,24 @@ function Hero() {
   )
 }
 
-/* ════════════════════════════════════════════
-   MARQUEE
-════════════════════════════════════════════ */
 function Marquee() {
-  const items = [
-    'Gourmet Burgers','Sunday Brunch','Molten Lava Cake',
-    'Hi-Tea','Brick & Dark Wood','Do Burj Plaza',
-    'Hand-Cut Steaks','Artisan Coffee','Est. 2015','Faisalabad'
-  ]
+  const items = ['Gourmet Burgers','Sunday Brunch','Molten Lava Cake','Hi-Tea','Brick & Dark Wood','Do Burj Plaza','Hand-Cut Steaks','Artisan Coffee','Est. 2015','Faisalabad']
   const doubled = [...items,...items]
   return (
     <div className="marquee-wrap">
       <div className="marquee-track">
         {doubled.map((t,i)=>(
-          <span key={i} className="marquee-item">
-            {t}<span className="marquee-dot"/>
-          </span>
+          <span key={i} className="marquee-item">{t}<span className="marquee-dot"/></span>
         ))}
       </div>
     </div>
   )
 }
 
-/* ════════════════════════════════════════════
-   EDITORIAL
-════════════════════════════════════════════ */
 function Editorial({ flip, imgSrc, num, label, h, em, body, cta, ctaHref }) {
   return (
     <section className={`editorial${flip?' flip':''}`}>
-      <div className="editorial-img">
-        <LazyImg src={imgSrc} alt={h}/>
-      </div>
+      <div className="editorial-img"><LazyImg src={imgSrc} alt={h}/></div>
       <motion.div {...fade(0)} className="editorial-copy">
         <span className="editorial-num">{num}</span>
         <p className="t-label" style={{marginBottom:'16px'}}>{label}</p>
@@ -289,8 +252,7 @@ function Editorial({ flip, imgSrc, num, label, h, em, body, cta, ctaHref }) {
         <div className="editorial-divider"/>
         <p className="t-body" style={{marginBottom:'36px',maxWidth:'380px'}}>{body}</p>
         {cta&&(
-          <a href={ctaHref} className="btn-ghost"
-            style={{color:'var(--gold)',borderColor:'rgba(212,175,55,0.28)'}}>
+          <a href={ctaHref} className="btn-ghost" style={{color:'var(--gold)',borderColor:'rgba(212,175,55,0.28)'}}>
             {cta} <ArrowRight size={13}/>
           </a>
         )}
@@ -299,9 +261,6 @@ function Editorial({ flip, imgSrc, num, label, h, em, body, cta, ctaHref }) {
   )
 }
 
-/* ════════════════════════════════════════════
-   FULL BLEED
-════════════════════════════════════════════ */
 function FullBleed({ src, caption }) {
   return (
     <div className="fullbleed">
@@ -312,9 +271,6 @@ function FullBleed({ src, caption }) {
   )
 }
 
-/* ════════════════════════════════════════════
-   MENU
-════════════════════════════════════════════ */
 function MenuSection() {
   const [active, setActive] = useState('Sunday Brunch')
   const tabs = Object.keys(MENU)
@@ -328,8 +284,7 @@ function MenuSection() {
           </div>
           <div className="menu-tabs">
             {tabs.map(t=>(
-              <button key={t} onClick={()=>setActive(t)}
-                className={`menu-tab${active===t?' active':''}`}>{t}</button>
+              <button key={t} onClick={()=>setActive(t)} className={`menu-tab${active===t?' active':''}`}>{t}</button>
             ))}
           </div>
         </div>
@@ -342,9 +297,7 @@ function MenuSection() {
           {MENU[active].map((item,i)=>(
             <motion.li key={item.name} {...fade(i*0.07)} className="menu-item">
               <div className="menu-item-left">
-                <div className="menu-item-img">
-                  <LazyImg src={item.img} alt={item.name}/>
-                </div>
+                <div className="menu-item-img"><LazyImg src={item.img} alt={item.name}/></div>
                 <div>
                   <p className="menu-item-name">{item.name}</p>
                   <p className="menu-item-desc">{item.desc}</p>
@@ -367,9 +320,6 @@ function MenuSection() {
   )
 }
 
-/* ════════════════════════════════════════════
-   BRUNCH
-════════════════════════════════════════════ */
 function Brunch() {
   return (
     <section id="brunch" className="brunch-section">
@@ -405,14 +355,11 @@ function Brunch() {
   )
 }
 
-/* ════════════════════════════════════════════
-   HI-TEA
-════════════════════════════════════════════ */
 function HiTea() {
   const cards = [
-    { img:d4,  title:'Hi-Tea for Two',    sub:'Finger sandwiches, scones, macarons, mini pastries & bottomless tea' },
-    { img:d3,  title:'Molten Lava Cake',  sub:'The dessert Faisalabad talks about. Warm chocolate fondant, vanilla ice cream' },
-    { img:c2,  title:'Portobello Tiramisu', sub:'House-made, espresso-soaked, mascarpone cream. A signature since day one' },
+    { img:d4, title:'Hi-Tea for Two',       sub:'Finger sandwiches, scones, macarons, mini pastries & bottomless tea' },
+    { img:d3, title:'Molten Lava Cake',     sub:'The dessert Faisalabad talks about. Warm chocolate fondant, vanilla ice cream' },
+    { img:c2, title:'Portobello Tiramisu',  sub:'House-made, espresso-soaked, mascarpone cream. A signature since day one' },
   ]
   return (
     <section id="hitea" className="hitea-strip">
@@ -441,18 +388,13 @@ function HiTea() {
           ))}
         </div>
         <motion.div {...fade(0.3)} style={{textAlign:'center',marginTop:'44px'}}>
-          <a href="#reserve" className="btn-primary">
-            <Calendar size={13}/> Book Hi-Tea
-          </a>
+          <a href="#reserve" className="btn-primary"><Calendar size={13}/> Book Hi-Tea</a>
         </motion.div>
       </div>
     </section>
   )
 }
 
-/* ════════════════════════════════════════════
-   REVIEWS
-════════════════════════════════════════════ */
 function Reviews() {
   const [start, setStart] = useState(0)
   const perPage = typeof window!=='undefined'&&window.innerWidth<960 ? 1 : 3
@@ -497,9 +439,6 @@ function Reviews() {
   )
 }
 
-/* ════════════════════════════════════════════
-   EVENTS
-════════════════════════════════════════════ */
 function Events() {
   return (
     <section id="events" className="events-section">
@@ -536,9 +475,6 @@ function Events() {
   )
 }
 
-/* ════════════════════════════════════════════
-   RESERVE
-════════════════════════════════════════════ */
 function Reserve() {
   const [form, setForm] = useState({name:'',phone:'',email:'',date:'',time:'',guests:'2',type:'Dinner',notes:''})
   const [sent, setSent] = useState(false)
@@ -577,17 +513,18 @@ function Reserve() {
             <div className="reserve-info-block">
               <h3 className="reserve-info-h3">Contact</h3>
               {[
-                { icon:Phone,         lines:[{text:'041-8555583', href:'tel:+92418555583'},{text:'041-8555584', href:'tel:+92418555584'}] },
-                { icon:MessageCircle, lines:[{text:'+92 315 4674321 (WhatsApp)', href:'https://wa.me/923154674321'}] },
-                { icon:MapPin,        lines:[{text:'Do Burj Plaza, Faisalabad', href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad'}] },
-                { icon:Clock,         lines:[{text:'Sunday Brunch: 11 AM – 2 PM', href:null}] },
+                { icon:Phone,         lines:[{text:'041-8555583',href:'tel:+92418555583'},{text:'041-8555584',href:'tel:+92418555584'}] },
+                { icon:MessageCircle, lines:[{text:'+92 315 4674321 (WhatsApp)',href:'https://wa.me/923154674321'}] },
+                { icon:MapPin,        lines:[{text:'Do Burj Plaza, Faisalabad',href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad'}] },
+                { icon:Clock,         lines:[{text:'Sunday Brunch: 11 AM – 2 PM',href:null}] },
               ].map((c,i)=>(
                 <div key={i} className="contact-row">
                   <c.icon size={14} className="contact-icon"/>
                   <div>
                     {c.lines.map(l=>
                       l.href
-                        ? <a key={l.text} href={l.href} target={l.href.startsWith('http')?'_blank':undefined}
+                        ? <a key={l.text} href={l.href}
+                            target={l.href.startsWith('http')?'_blank':undefined}
                             rel={l.href.startsWith('http')?'noopener noreferrer':undefined}
                             style={{fontSize:'13px',fontWeight:300,color:'rgba(247,243,238,0.42)',lineHeight:'1.65',display:'block',textDecoration:'none',transition:'color 0.2s'}}
                             onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
@@ -601,7 +538,6 @@ function Reserve() {
               ))}
             </div>
           </motion.div>
-
           <motion.div {...fade(0.15)}>
             <form onSubmit={submit} className="pb-form">
               <div className="form-row">
@@ -663,9 +599,6 @@ function Reserve() {
   )
 }
 
-/* ════════════════════════════════════════════
-   MAP
-════════════════════════════════════════════ */
 function MapSection() {
   return (
     <div className="map-section">
@@ -680,9 +613,6 @@ function MapSection() {
   )
 }
 
-/* ════════════════════════════════════════════
-   FOOTER
-════════════════════════════════════════════ */
 function Footer() {
   return (
     <footer className="footer">
@@ -721,15 +651,16 @@ function Footer() {
           <div>
             <p className="footer-col-title">Contact</p>
             {[
-              { icon:Phone,         text:'041-8555583', href:'tel:+92418555583' },
-              { icon:Phone,         text:'041-8555584', href:'tel:+92418555584' },
-              { icon:MessageCircle, text:'+92 315 4674321', href:'https://wa.me/923154674321' },
-              { icon:MapPin,        text:'Do Burj Plaza, Faisalabad', href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad' },
-              { icon:Instagram,     text:'facebook.com/PortobelloPK', href:'https://www.facebook.com/PortobelloPK/' },
+              { icon:Phone,         text:'041-8555583',              href:'tel:+92418555583' },
+              { icon:Phone,         text:'041-8555584',              href:'tel:+92418555584' },
+              { icon:MessageCircle, text:'+92 315 4674321',          href:'https://wa.me/923154674321' },
+              { icon:MapPin,        text:'Do Burj Plaza, Faisalabad',href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad' },
+              { icon:Instagram,     text:'facebook.com/PortobelloPK',href:'https://www.facebook.com/PortobelloPK/' },
             ].map((c,i)=>(
               <div key={i} style={{display:'flex',gap:'10px',marginBottom:'13px',alignItems:'flex-start'}}>
                 <c.icon size={13} style={{color:'rgba(212,175,55,0.32)',flexShrink:0,marginTop:'2px'}}/>
-                <a href={c.href} target={c.href.startsWith('http')?'_blank':undefined}
+                <a href={c.href}
+                  target={c.href.startsWith('http')?'_blank':undefined}
                   rel={c.href.startsWith('http')?'noopener noreferrer':undefined}
                   style={{fontSize:'12px',fontWeight:300,color:'rgba(255,255,255,0.25)',lineHeight:'1.65',textDecoration:'none',transition:'color 0.2s'}}
                   onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
@@ -749,9 +680,6 @@ function Footer() {
   )
 }
 
-/* ════════════════════════════════════════════
-   WA FLOAT
-════════════════════════════════════════════ */
 function WAFloat() {
   const [show, setShow] = useState(false)
   useEffect(()=>{ const t=setTimeout(()=>setShow(true),2500); return ()=>clearTimeout(t) },[])
@@ -771,51 +699,37 @@ function WAFloat() {
   )
 }
 
-/* ════════════════════════════════════════════
-   PAGE
-════════════════════════════════════════════ */
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
-
   useEffect(()=>{
     const onScroll = () => {
       setScrolled(window.scrollY > 60)
-      const sections = NAV_SECTIONS
       let current = ''
-      for (const id of sections) {
+      for (const id of NAV_SECTIONS) {
         const el = document.getElementById(id)
         if (el && window.scrollY >= el.offsetTop - 120) current = id
       }
       setActiveSection(current)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive:true })
     return () => window.removeEventListener('scroll', onScroll)
   },[])
-
   return (
     <>
       <Nav scrolled={scrolled} activeSection={activeSection}/>
       <Hero/>
       <Marquee/>
-      <Editorial
-        imgSrc={f3} num="01" flip={false}
-        label="Our Story"
-        h="A Café That Feels Like"
-        em="Coming Home."
+      <Editorial imgSrc={f3} num="01" flip={false} label="Our Story"
+        h="A Café That Feels Like" em="Coming Home."
         body="Born from a love of unhurried meals and honest cooking, Portobello Café has been Faisalabad's quiet landmark since 2015. Brick walls, dark wood, warm lighting — a space where the city slows down and food does the talking."
-        cta="Reserve a Table" ctaHref="#reserve"
-      />
+        cta="Reserve a Table" ctaHref="#reserve"/>
       <FullBleed src={f4} caption="Every detail, considered."/>
       <MenuSection/>
-      <Editorial
-        imgSrc={f1} num="02" flip={true}
-        label="Sunday Ritual"
-        h="The Brunch That Became"
-        em="A Tradition."
+      <Editorial imgSrc={f1} num="02" flip={true} label="Sunday Ritual"
+        h="The Brunch That Became" em="A Tradition."
         body="What started as a weekend special became Faisalabad's most anticipated Sunday morning. Eggs Benedict, French Toast, bottomless coffee. Arrive at 11. Linger until 2. You've earned it."
-        cta="See the Brunch Menu" ctaHref="#brunch"
-      />
+        cta="See the Brunch Menu" ctaHref="#brunch"/>
       <Brunch/>
       <HiTea/>
       <FullBleed src={f2} caption="Rustic warmth. Continental soul."/>
