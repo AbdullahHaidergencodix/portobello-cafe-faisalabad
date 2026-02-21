@@ -1,341 +1,10 @@
-Last login: Sun Feb 22 01:57:58 on ttys000
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash portobello.sh
-✅ rebuild.sh saved to Desktop
-Now run:  bash ~/Desktop/rebuild.sh
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % npm run dev
+cat > ~/Desktop/portobello-ux-patch.sh << 'SCRIPT'
+#!/bin/bash
+set -e
+DIR=~/Desktop/portobello-cafe-faisalabad
+echo "📝 Patching index.html — font preload..."
 
-> portobello-cafe-faisalabad@0.0.0 dev
-> vite
-
-
-  VITE v5.4.21  ready in 234 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-o
-^C
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash portobello.sh
-✅ Script saved. Now run:
-   bash ~/Desktop/portobello-rebuild2.sh
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad %  bash ~/Desktop/portobello-rebuild2.sh
-⬇️  Downloading accurate Portobello-matched images...
-✅ Images done
-📝 Writing index.css with gold accent #d4af37...
-📝 Writing Home.jsx with accurate Portobello menu...
-
-✅ All files written. Building...
-
-> portobello-cafe-faisalabad@0.0.0 build /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite build
-
-vite v5.4.21 building for production...
-✓ 2151 modules transformed.
-dist/index.html                        1.19 kB │ gzip:   0.60 kB
-dist/assets/dish-8-Enh98ank.jpg       42.75 kB
-dist/assets/dish-7-DZJY0SDf.jpg       70.01 kB
-dist/assets/coffee-1-Ua2uDZQI.jpg     82.99 kB
-dist/assets/dish-1-CYEacQbD.jpg       99.46 kB
-dist/assets/dish-6-Ddjwp1gS.jpg      116.50 kB
-dist/assets/dish-4-Asn4TvkO.jpg      122.73 kB
-dist/assets/dish-5-CW_fHHlP.jpg      131.77 kB
-dist/assets/dish-2-BhZnCSxx.jpg      143.20 kB
-dist/assets/dish-3-ClasmG-a.jpg      168.98 kB
-dist/assets/coffee-2-DEvw0qFg.jpg    176.11 kB
-dist/assets/full-6-B8mu-cMH.jpg      227.44 kB
-dist/assets/full-4-DC_9xXUe.jpg      228.64 kB
-dist/assets/full-3-DU6qus7W.jpg      378.89 kB
-dist/assets/hero-2-DbufZzTY.jpg      441.99 kB
-dist/assets/full-5-CZMfgRCL.jpg      448.93 kB
-dist/assets/full-2-w9atySnN.jpg      540.49 kB
-dist/assets/full-1-DUkRIoV4.jpg      547.48 kB
-dist/assets/hero-3-DH57CbLJ.jpg      602.51 kB
-dist/assets/hero-1-BJ0Vt8S4.jpg      854.54 kB
-dist/assets/hero-4-Czf0G3Hj.jpg    1,064.94 kB
-dist/assets/index-V2detvzD.css        18.27 kB │ gzip:   4.18 kB
-dist/assets/index-Njmy8Hwj.js        352.58 kB │ gzip: 111.49 kB
-✓ built in 3.79s
-✅ Build passed
-
-📦 Committing & pushing...
-fatal: not a git repository (or any of the parent directories): .git
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % npm run dev
-
-> portobello-cafe-faisalabad@0.0.0 dev
-> vite
-
-
-  VITE v5.4.21  ready in 226 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-o
-^C
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash portobello.sh
-✅ Saved. Run with:
-   bash ~/Desktop/portobello-patch.sh
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash ~/Desktop/portobello-patch.sh
-⬇️  Re-pulling accurate images only...
-✅ Images done
-📝 Patching index.css — gold #d4af37 only, layout untouched...
-📝 Patching Home.jsx — menu data + marquee only, layout identical...
-
-✅ Files patched. Building...
-
-> portobello-cafe-faisalabad@0.0.0 build /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite build
-
-vite v5.4.21 building for production...
-✓ 2151 modules transformed.
-dist/index.html                        1.19 kB │ gzip:   0.60 kB
-dist/assets/dish-8-Enh98ank.jpg       42.75 kB
-dist/assets/dish-7-DZJY0SDf.jpg       70.01 kB
-dist/assets/coffee-1-Ua2uDZQI.jpg     82.99 kB
-dist/assets/dish-1-CYEacQbD.jpg       99.46 kB
-dist/assets/dish-6-Ddjwp1gS.jpg      116.50 kB
-dist/assets/dish-4-Asn4TvkO.jpg      122.73 kB
-dist/assets/dish-5-CW_fHHlP.jpg      131.77 kB
-dist/assets/dish-2-BhZnCSxx.jpg      143.20 kB
-dist/assets/dish-3-ClasmG-a.jpg      168.98 kB
-dist/assets/coffee-2-DEvw0qFg.jpg    176.11 kB
-dist/assets/full-6-B8mu-cMH.jpg      227.44 kB
-dist/assets/full-4-DC_9xXUe.jpg      228.64 kB
-dist/assets/full-3-DU6qus7W.jpg      378.89 kB
-dist/assets/hero-2-DbufZzTY.jpg      441.99 kB
-dist/assets/full-5-CZMfgRCL.jpg      448.93 kB
-dist/assets/full-2-w9atySnN.jpg      540.49 kB
-dist/assets/full-1-DUkRIoV4.jpg      547.48 kB
-dist/assets/hero-3-DH57CbLJ.jpg      602.51 kB
-dist/assets/hero-1-BJ0Vt8S4.jpg      854.54 kB
-dist/assets/hero-4-Czf0G3Hj.jpg    1,064.94 kB
-dist/assets/index-y78Z2IYS.css        16.35 kB │ gzip:   3.83 kB
-dist/assets/index-BzcDWewk.js        350.47 kB │ gzip: 111.08 kB
-✓ built in 3.85s
-✅ Build passed
-
-📦 Committing...
-fatal: not a git repository (or any of the parent directories): .git
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % pnpm dev
-
-> portobello-cafe-faisalabad@0.0.0 dev /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite
-
-
-  VITE v5.4.21  ready in 230 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-o
-^C ELIFECYCLE  Command failed.
-
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash portobello.sh
-✅ Saved. Run:
-   bash ~/Desktop/portobello-onyx.sh
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash ~/Desktop/portobello-onyx.sh
-
-📦 Installing framer-motion + lenis (smooth scroll)...
- WARN  deprecated @studio-freight/lenis@1.0.42: The '@studio-freight/lenis' package has been renamed to 'lenis'. Please update your dependencies: npm install lenis and visit the documentation: https://www.npmjs.com/package/lenis
-Packages: +1
-+
-Progress: resolved 205, reused 158, downloaded 1, added 1, done
-
-dependencies:
-+ @studio-freight/lenis 1.0.42 deprecated
-
-Done in 2.6s using pnpm v10.30.1
-⬇️  Images...
-✅ Images done
-
-✅ Files written. Building...
-
-> portobello-cafe-faisalabad@0.0.0 build /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite build
-
-vite v5.4.21 building for production...
-✓ 2152 modules transformed.
-dist/index.html                        1.19 kB │ gzip:   0.61 kB
-dist/assets/dish-8-CH09ct_g.jpg       64.44 kB
-dist/assets/dish-7-CIMrv1-s.jpg      106.20 kB
-dist/assets/coffee-1-D_-jHgW2.jpg    134.19 kB
-dist/assets/dish-1-D7V7AdQa.jpg      158.89 kB
-dist/assets/dish-6-3lCjPSpv.jpg      180.08 kB
-dist/assets/dish-4-CxRQwg1e.jpg      197.81 kB
-dist/assets/dish-2-DWANOZWt.jpg      224.01 kB
-dist/assets/dish-5-Gr_rwrET.jpg      240.24 kB
-dist/assets/dish-3-KzAaYtLT.jpg      269.69 kB
-dist/assets/coffee-2-B3fivGzN.jpg    285.81 kB
-dist/assets/full-6-CjxJTf73.jpg      391.59 kB
-dist/assets/full-3-CitvqPpt.jpg      404.79 kB
-dist/assets/hero-2-C_zz_6Yt.jpg      592.27 kB
-dist/assets/full-1-CnjK07sE.jpg      709.13 kB
-dist/assets/hero-3-BRZk_MIA.jpg      758.04 kB
-dist/assets/full-5-Crvs8l93.jpg      770.04 kB
-dist/assets/full-2-48jHPLad.jpg      932.39 kB
-dist/assets/full-4-Dw_xowVK.jpg    1,026.74 kB
-dist/assets/hero-1-VeLK8ZJN.jpg    1,082.24 kB
-dist/assets/hero-4-CF-wn1OP.jpg    1,378.40 kB
-dist/assets/index-BBN3Ry_L.css        20.86 kB │ gzip:   4.52 kB
-dist/assets/index-DoRpvJKL.js        363.53 kB │ gzip: 114.51 kB
-✓ built in 4.00s
-✅ Build passed
-
-📦 Committing...
-fatal: not a git repository (or any of the parent directories): .git
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % pnpm dev
-
-> portobello-cafe-faisalabad@0.0.0 dev /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite
-
-Re-optimizing dependencies because lockfile has changed
-
-  VITE v5.4.21  ready in 264 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-o
-^C ELIFECYCLE  Command failed.
-
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash portobello.sh
-✅ Ready. Run:
-   bash ~/Desktop/portobello-fix.sh
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad %  bash ~/Desktop/portobello-fix.sh
-📝 Patching cursor out + mobile optimizations...
-✅ Patched. Building...
-
-> portobello-cafe-faisalabad@0.0.0 build /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite build
-
-vite v5.4.21 building for production...
-✓ 2152 modules transformed.
-dist/index.html                        1.19 kB │ gzip:   0.60 kB
-dist/assets/dish-8-CH09ct_g.jpg       64.44 kB
-dist/assets/dish-7-CIMrv1-s.jpg      106.20 kB
-dist/assets/coffee-1-D_-jHgW2.jpg    134.19 kB
-dist/assets/dish-1-D7V7AdQa.jpg      158.89 kB
-dist/assets/dish-6-3lCjPSpv.jpg      180.08 kB
-dist/assets/dish-4-CxRQwg1e.jpg      197.81 kB
-dist/assets/dish-2-DWANOZWt.jpg      224.01 kB
-dist/assets/dish-5-Gr_rwrET.jpg      240.24 kB
-dist/assets/dish-3-KzAaYtLT.jpg      269.69 kB
-dist/assets/coffee-2-B3fivGzN.jpg    285.81 kB
-dist/assets/full-6-CjxJTf73.jpg      391.59 kB
-dist/assets/full-3-CitvqPpt.jpg      404.79 kB
-dist/assets/hero-2-C_zz_6Yt.jpg      592.27 kB
-dist/assets/full-1-CnjK07sE.jpg      709.13 kB
-dist/assets/hero-3-BRZk_MIA.jpg      758.04 kB
-dist/assets/full-5-Crvs8l93.jpg      770.04 kB
-dist/assets/full-2-48jHPLad.jpg      932.39 kB
-dist/assets/full-4-Dw_xowVK.jpg    1,026.74 kB
-dist/assets/hero-1-VeLK8ZJN.jpg    1,082.24 kB
-dist/assets/hero-4-CF-wn1OP.jpg    1,378.40 kB
-dist/assets/index-DWjQxlgu.css        21.85 kB │ gzip:   4.61 kB
-dist/assets/index-B3--saSm.js        362.47 kB │ gzip: 114.26 kB
-✓ built in 3.89s
-✅ Build passed
-fatal: not a git repository (or any of the parent directories): .git
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % pnpm dev          
-
-> portobello-cafe-faisalabad@0.0.0 dev /Users/abdullah/Desktop/portobello-cafe-faisalabad
-> vite
-
-
-  VITE v5.4.21  ready in 232 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-o
-^C ELIFECYCLE  Command failed.
-
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % cd ~/Desktop/portobello-cafe-faisalabad && git add -A && git commit -m "deploy: final build" && git push origin main
-fatal: not a git repository (or any of the parent directories): .git
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % cd ~/Desktop/portobello-cafe-faisalabad && git init && git add -A && git commit -m "initial commit" && git branch -M main 
-hint: Using 'master' as the name for the initial branch. This default branch name
-hint: is subject to change. To configure the initial branch name to use in all
-hint: of your new repositories, which will suppress this warning, call:
-hint: 
-hint: 	git config --global init.defaultBranch <name>
-hint: 
-hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-hint: 'development'. The just-created branch can be renamed via this command:
-hint: 
-hint: 	git branch -m <name>
-Initialized empty Git repository in /Users/abdullah/Desktop/portobello-cafe-faisalabad/.git/
-[master (root-commit) 6ce719a] initial commit
- 57 files changed, 4390 insertions(+)
- create mode 100644 .gitignore
- create mode 100644 README.md
- create mode 100644 eslint.config.js
- create mode 100644 index.html
- create mode 100644 package.json
- create mode 100644 pnpm-lock.yaml
- create mode 100644 pnpm-workspace.yaml
- create mode 100755 portobello.sh
- create mode 100644 public/favicon.svg
- create mode 100644 public/vite.svg
- create mode 100644 src/App.css
- create mode 100644 src/App.jsx
- create mode 100644 src/assets/images/ambiance-coffee.jpg
- create mode 100644 src/assets/images/ambiance-evening.jpg
- create mode 100644 src/assets/images/ambiance-rustic.jpg
- create mode 100644 src/assets/images/ambiance-table.jpg
- create mode 100644 src/assets/images/coffee-1.jpg
- create mode 100644 src/assets/images/coffee-2.jpg
- create mode 100644 src/assets/images/dish-1.jpg
- create mode 100644 src/assets/images/dish-2.jpg
- create mode 100644 src/assets/images/dish-3.jpg
- create mode 100644 src/assets/images/dish-4.jpg
- create mode 100644 src/assets/images/dish-5.jpg
- create mode 100644 src/assets/images/dish-6.jpg
- create mode 100644 src/assets/images/dish-7.jpg
- create mode 100644 src/assets/images/dish-8.jpg
- create mode 100644 src/assets/images/dish-eggs-benedict.jpg
- create mode 100644 src/assets/images/dish-french-toast.jpg
- create mode 100644 src/assets/images/dish-mushroom-risotto.jpg
- create mode 100644 src/assets/images/dish-pan-asian-noodles.jpg
- create mode 100644 src/assets/images/dish-pasta-truffle.jpg
- create mode 100644 src/assets/images/dish-salmon-fillet.jpg
- create mode 100644 src/assets/images/dish-seafood-chowder.jpg
- create mode 100644 src/assets/images/dish-steak-shrooms.jpg
- create mode 100644 src/assets/images/dish-sunday-brunch.jpg
- create mode 100644 src/assets/images/dish-tiramisu.jpg
- create mode 100644 src/assets/images/event-corporate.jpg
- create mode 100644 src/assets/images/event-private.jpg
- create mode 100644 src/assets/images/full-1.jpg
- create mode 100644 src/assets/images/full-2.jpg
- create mode 100644 src/assets/images/full-3.jpg
- create mode 100644 src/assets/images/full-4.jpg
- create mode 100644 src/assets/images/full-5.jpg
- create mode 100644 src/assets/images/full-6.jpg
- create mode 100644 src/assets/images/hero-1.jpg
- create mode 100644 src/assets/images/hero-2.jpg
- create mode 100644 src/assets/images/hero-3.jpg
- create mode 100644 src/assets/images/hero-4.jpg
- create mode 100644 src/assets/images/hero-bar.jpg
- create mode 100644 src/assets/images/hero-brunch.jpg
- create mode 100644 src/assets/images/hero-evening.jpg
- create mode 100644 src/assets/images/hero-interior.jpg
- create mode 100644 src/assets/react.svg
- create mode 100644 src/index.css
- create mode 100644 src/main.jsx
- create mode 100644 src/pages/Home.jsx
- create mode 100644 vite.config.js
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % git remote add origin https://github.com/Abdullahhaidergencodix/portobello-cafe-faisalabad.git && git push -u origin main
-Enumerating objects: 64, done.
-Counting objects: 100% (64/64), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (62/62), done.
-Writing objects: 100% (64/64), 13.88 MiB | 377.00 KiB/s, done.
-Total 64 (delta 0), reused 0 (delta 0), pack-reused 0
-remote: This repository moved. Please use the new location:
-remote:   https://github.com/AbdullahHaidergencodix/portobello-cafe-faisalabad.git
-To https://github.com/Abdullahhaidergencodix/portobello-cafe-faisalabad.git
- * [new branch]      main -> main
-Branch 'main' set up to track remote branch 'main' from 'origin'.
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % cat ~/Desktop/portobello-cafe-faisalabad/index.html
+cat > "$DIR/index.html" << 'HTML'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,33 +17,870 @@ abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % cat ~/Desktop/portob
   <title>Portobello Café · Continental Dining · Faisalabad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garrison:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garrison:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % sed -i '' "s/family=Cormorant:/family=Cormorant+Garrison:/g" ~/Desktop/portobello-cafe-faisalabad/index.html && sed -i '' "s/family=Cormorant,/family=Cormorant+Garrison,/g" ~/Desktop/portobello-cafe-faisalabad/index.html
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % bash portobello.sh
-[main 53bf922] fix: Cormorant Garrison font
- 2 files changed, 2 insertions(+), 844 deletions(-)
- rewrite portobello.sh (100%)
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 555 bytes | 555.00 KiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-remote: This repository moved. Please use the new location:
-remote:   https://github.com/AbdullahHaidergencodix/portobello-cafe-faisalabad.git
-To https://github.com/Abdullahhaidergencodix/portobello-cafe-faisalabad.git
-   6ce719a..53bf922  main -> main
-✅ Done — wait 60s then Cmd+Shift+R
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % cat ~/Desktop/portobello-cafe-faisalabad/src/App.jsx && echo "---" && cat ~/Desktop/portobello-cafe-faisalabad/src/Home.jsx
-import Home from './pages/Home'
-export default function App(){ return <Home/> }
----
-cat: /Users/abdullah/Desktop/portobello-cafe-faisalabad/src/Home.jsx: No such file or directory
-abdullah@Abdullahs-MacBook-Pro portobello-cafe-faisalabad % 
+HTML
+
+echo "📝 Patching Home.jsx — tel: links + lazy images + active nav..."
+
+cat > "$DIR/src/pages/Home.jsx" << 'JSX'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  ChevronLeft, ChevronRight, MessageCircle,
+  Phone, MapPin, Clock, Star,
+  Calendar, Users, Wine, Instagram, ArrowRight
+} from 'lucide-react'
+
+import h1 from '../assets/images/hero-1.jpg'
+import h2 from '../assets/images/hero-2.jpg'
+import h3 from '../assets/images/hero-3.jpg'
+import h4 from '../assets/images/hero-4.jpg'
+import f1 from '../assets/images/full-1.jpg'
+import f2 from '../assets/images/full-2.jpg'
+import f3 from '../assets/images/full-3.jpg'
+import f4 from '../assets/images/full-4.jpg'
+import f5 from '../assets/images/full-5.jpg'
+import f6 from '../assets/images/full-6.jpg'
+import d1 from '../assets/images/dish-1.jpg'
+import d2 from '../assets/images/dish-2.jpg'
+import d3 from '../assets/images/dish-3.jpg'
+import d4 from '../assets/images/dish-4.jpg'
+import d5 from '../assets/images/dish-5.jpg'
+import d6 from '../assets/images/dish-6.jpg'
+import d7 from '../assets/images/dish-7.jpg'
+import d8 from '../assets/images/dish-8.jpg'
+import c1 from '../assets/images/coffee-1.jpg'
+import c2 from '../assets/images/coffee-2.jpg'
+
+/* ── DATA ── */
+const SLIDES = [
+  { img:h1, label:'Rustic · Brick · Dark Wood',   h:'Continental Dining,',        em:'Faisalabad\'s Finest.' },
+  { img:h2, label:'Sunday Brunch · 11 AM – 2 PM', h:'The Brunch That Became',     em:'A Tradition.' },
+  { img:h3, label:'Evening Dining',               h:'Warm Walls. Bold Flavours.', em:'Every Night.' },
+  { img:h4, label:'Artisan Drinks & Hi-Tea',      h:'From First Coffee',          em:'To Last Bite.' },
+]
+
+const MENU = {
+  'Sunday Brunch': [
+    { name:'Eggs Benedict',          desc:'Poached eggs, Canadian bacon, hollandaise sauce on toasted brioche',       img:d5, price:'PKR 1,450', tag:"Chef's Pick" },
+    { name:'Portobello Full Brunch', desc:'Eggs your way, smoked sausage, baked beans, grilled tomato, sourdough',    img:d8, price:'PKR 1,850', tag:'Best Seller' },
+    { name:'French Toast Stack',     desc:'Thick-cut brioche, whipped mascarpone, berry compote, warm maple syrup',   img:d4, price:'PKR 1,250' },
+    { name:'Smashed Avocado Toast',  desc:'Sourdough, smashed avo, chilli flakes, poached egg, feta crumble',         img:d7, price:'PKR 1,350' },
+  ],
+  'Gourmet Burgers': [
+    { name:'Portobello Classic Burger',  desc:'200g beef patty, cheddar, caramelised onion, pickles, brioche bun, fries', img:d1, price:'PKR 1,650', tag:'Most Ordered' },
+    { name:'Mushroom & Swiss Burger',    desc:'Beef patty, sautéed portobello mushrooms, Swiss cheese, truffle aioli',    img:d1, price:'PKR 1,750', tag:'Signature' },
+    { name:'Crispy Chicken Burger',      desc:'Southern-fried chicken thigh, slaw, chipotle mayo, pickle, brioche bun',   img:d1, price:'PKR 1,550' },
+  ],
+  'Steaks & Mains': [
+    { name:'Ribeye Steak',           desc:'300g grain-fed ribeye, roasted garlic butter, seasonal veg, fries',        img:d2, price:'PKR 3,800', tag:'Signature' },
+    { name:'Sirloin & Mushroom Jus', desc:'200g sirloin, sautéed portobello mushrooms, red wine reduction, greens',   img:d2, price:'PKR 3,200', tag:'Most Ordered' },
+    { name:'Atlantic Salmon Fillet', desc:'Pan-seared, lemon beurre blanc, asparagus, crushed potatoes',              img:d7, price:'PKR 2,800' },
+    { name:'Truffle Mushroom Pasta', desc:'Fresh tagliatelle, black truffle cream, wild mushrooms, aged parmesan',    img:d6, price:'PKR 1,950' },
+  ],
+  'Hi-Tea': [
+    { name:'Portobello Hi-Tea for 2', desc:'Finger sandwiches, scones, macarons, mini pastries, pot of tea or coffee', img:d4, price:'PKR 3,200', tag:'Weekend Special' },
+    { name:'High Tea Deluxe for 4',   desc:'Extended spread with additional savouries, desserts, and bottomless tea',  img:d4, price:'PKR 5,800', tag:'Best Value' },
+  ],
+  'Desserts': [
+    { name:'Molten Lava Cake',       desc:'Warm dark chocolate fondant, vanilla bean ice cream, chocolate drizzle',   img:d3, price:'PKR 850',   tag:'Must Try' },
+    { name:'Portobello Tiramisu',    desc:'House-made, espresso-soaked ladyfingers, mascarpone cream, cocoa dust',    img:c2, price:'PKR 850',   tag:'Signature' },
+    { name:'Crème Brûlée',           desc:'Classic vanilla custard, torched caramel crust, fresh berry garnish',      img:c1, price:'PKR 800' },
+  ],
+}
+
+const HOURS = [
+  { day:'Monday – Thursday', time:'12:00 PM – 11:00 PM' },
+  { day:'Friday',             time:'12:00 PM – 12:00 AM' },
+  { day:'Saturday',           time:'11:00 AM – 12:00 AM' },
+  { day:'Sunday Brunch',      time:'11:00 AM – 2:00 PM',  hi:true },
+  { day:'Sunday Dinner',      time:'6:00 PM – 11:00 PM' },
+]
+
+const REVIEWS = [
+  { name:'Sana K.',       r:5, text:'The Molten Lava Cake alone is worth the visit. Warm, gooey, perfect. But honestly everything here is 10/10 — the ambiance, the service, the food.' },
+  { name:'Ahmad R.',      r:5, text:'Best steak in Faisalabad — no contest. The Ribeye is cooked perfectly every time. Dark wood, brick walls, candle light — feels like a completely different city.' },
+  { name:'Maryam T.',     r:5, text:'Came for Hi-Tea with my girls and it was stunning. The spread was generous, the setting was beautiful, and the macarons were divine.' },
+  { name:'Usman & Hira',  r:5, text:'Our anniversary dinner here was flawless. The Mushroom & Swiss Burger is secretly the best thing on the menu. Will be back every month.' },
+  { name:'Fatima A.',     r:5, text:'Sunday Brunch is a ritual now. Eggs Benedict every week. The coffee is always perfect and the staff remembers your order. Rare in this city.' },
+]
+
+const NAV_SECTIONS = ['menu','brunch','hitea','events','reserve']
+
+const fade  = (d=0) => ({ initial:{opacity:0,y:32}, whileInView:{opacity:1,y:0}, viewport:{once:true,margin:'-80px'}, transition:{duration:1,delay:d,ease:[0.22,1,0.36,1]} })
+const fadeL = (d=0) => ({ initial:{opacity:0,x:-32}, whileInView:{opacity:1,x:0}, viewport:{once:true,margin:'-80px'}, transition:{duration:1,delay:d,ease:[0.22,1,0.36,1]} })
+
+/* ── LAZY IMAGE ── */
+function LazyImg({ src, alt, className, style }) {
+  const ref = useRef(null)
+  const [loaded, setLoaded] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.src = src; obs.disconnect() }
+    }, { rootMargin: '200px' })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [src])
+  return (
+    <img
+      ref={ref}
+      alt={alt || ''}
+      className={className}
+      style={{ ...style, transition: 'opacity 0.4s', opacity: loaded ? 1 : 0 }}
+      onLoad={() => setLoaded(true)}
+    />
+  )
+}
+
+/* ════════════════════════════════════════════
+   NAV
+════════════════════════════════════════════ */
+function Nav({ scrolled, activeSection }) {
+  const [open, setOpen] = useState(false)
+  const links = [
+    { label:'Menu',    href:'#menu'    },
+    { label:'Brunch',  href:'#brunch'  },
+    { label:'Hi-Tea',  href:'#hitea'   },
+    { label:'Events',  href:'#events'  },
+    { label:'Reserve', href:'#reserve' },
+  ]
+  return (
+    <>
+      <nav className={`nav${scrolled?' scrolled':''}`}>
+        <a href="#" className="nav-logo" style={{textDecoration:'none',cursor:'pointer'}}>
+          PORTOBELLO
+          <span>Café · Faisalabad</span>
+        </a>
+        <ul className="nav-links">
+          {links.map(l=>(
+            <li key={l.label}>
+              <a href={l.href}
+                style={{
+                  borderBottom: activeSection===l.href.replace('#','') ? '1px solid var(--gold)' : '1px solid transparent',
+                  paddingBottom:'2px',
+                  color: activeSection===l.href.replace('#','') ? 'var(--gold)' : '',
+                  transition:'all 0.3s'
+                }}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href="#reserve" className="nav-cta">Reserve</a>
+        <button className="mob-toggle" aria-label="Toggle menu" onClick={()=>setOpen(o=>!o)}>
+          {open?'✕':'☰'}
+        </button>
+      </nav>
+      <AnimatePresence>
+        {open&&(
+          <motion.div
+            initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}}
+            style={{position:'fixed',top:68,left:0,right:0,zIndex:99,
+              background:'rgba(10,8,5,0.97)',backdropFilter:'blur(24px)',
+              padding:'32px clamp(24px,5vw,80px)',
+              borderBottom:'1px solid rgba(212,175,55,0.1)',
+              display:'flex',flexDirection:'column',gap:'22px'}}>
+            {links.map(l=>(
+              <a key={l.label} href={l.href} onClick={()=>setOpen(false)}
+                style={{fontFamily:'var(--sans)',fontSize:'13px',letterSpacing:'0.18em',
+                  textTransform:'uppercase',
+                  color: activeSection===l.href.replace('#','') ? 'var(--gold)' : 'rgba(255,255,255,0.5)',
+                  fontWeight:500}}>
+                {l.label}
+              </a>
+            ))}
+            <a href="tel:+92418555583"
+              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'var(--gold)',display:'flex',alignItems:'center',gap:'6px'}}>
+              <Phone size={12}/> 041-8555583
+            </a>
+            <a href="tel:+92418555584"
+              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'rgba(212,175,55,0.6)',display:'flex',alignItems:'center',gap:'6px'}}>
+              <Phone size={12}/> 041-8555584
+            </a>
+            <a href="https://wa.me/923154674321" target="_blank" rel="noopener noreferrer"
+              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'rgba(212,175,55,0.6)',display:'flex',alignItems:'center',gap:'6px'}}>
+              <MessageCircle size={12}/> WhatsApp
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
+/* ════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════ */
+function Hero() {
+  const [slide, setSlide] = useState(0)
+  const s = SLIDES[slide]
+  useEffect(()=>{
+    const t = setInterval(()=>setSlide(i=>(i+1)%SLIDES.length), 6000)
+    return ()=>clearInterval(t)
+  },[])
+  return (
+    <section className="hero">
+      {SLIDES.map((sl,i)=>(
+        <img key={i} src={sl.img} alt="" className="hero-img"
+          style={{opacity:i===slide?1:0,zIndex:i===slide?1:0}}/>
+      ))}
+      <div className="hero-overlay" style={{zIndex:2}}/>
+      <div className="hero-content" style={{zIndex:3}}>
+        <motion.div className="hero-eyebrow"
+          initial={{opacity:0,x:-20}} animate={{opacity:1,x:0}} transition={{duration:0.9,delay:0.3}}>
+          <div className="hero-eyebrow-line"/>
+          <AnimatePresence mode="wait">
+            <motion.span key={slide} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}
+              transition={{duration:0.5}} className="t-label">
+              {s.label}
+            </motion.span>
+          </AnimatePresence>
+        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.h1 key={slide} className="hero-h1"
+            initial={{opacity:0,y:36}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-24}}
+            transition={{duration:0.95,ease:[0.22,1,0.36,1]}}>
+            {s.h}
+            <em>{s.em}</em>
+          </motion.h1>
+        </AnimatePresence>
+        <motion.p className="hero-sub"
+          initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.9,delay:0.5}}>
+          Brick walls. Dark wood. Gourmet burgers, hand-cut steaks, legendary brunch,
+          and a Molten Lava Cake you'll dream about. Do Burj Plaza, Faisalabad.
+        </motion.p>
+        <motion.div className="hero-actions"
+          initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{duration:0.9,delay:0.65}}>
+          <a href="#reserve" className="btn-primary">
+            <Calendar size={13}/> Book a Table
+          </a>
+          <a href="#menu" className="btn-ghost">
+            See the Menu <ArrowRight size={13}/>
+          </a>
+        </motion.div>
+      </div>
+      <div className="slide-dots" style={{zIndex:3}}>
+        {SLIDES.map((_,i)=>(
+          <button key={i} onClick={()=>setSlide(i)}
+            className={`slide-dot${i===slide?' active':''}`}/>
+        ))}
+      </div>
+      <div className="hero-scroll" style={{zIndex:3}}>
+        <div className="hero-scroll-line"/>
+        <span>Scroll</span>
+      </div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   MARQUEE
+════════════════════════════════════════════ */
+function Marquee() {
+  const items = [
+    'Gourmet Burgers','Sunday Brunch','Molten Lava Cake',
+    'Hi-Tea','Brick & Dark Wood','Do Burj Plaza',
+    'Hand-Cut Steaks','Artisan Coffee','Est. 2015','Faisalabad'
+  ]
+  const doubled = [...items,...items]
+  return (
+    <div className="marquee-wrap">
+      <div className="marquee-track">
+        {doubled.map((t,i)=>(
+          <span key={i} className="marquee-item">
+            {t}<span className="marquee-dot"/>
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ════════════════════════════════════════════
+   EDITORIAL
+════════════════════════════════════════════ */
+function Editorial({ flip, imgSrc, num, label, h, em, body, cta, ctaHref }) {
+  return (
+    <section className={`editorial${flip?' flip':''}`}>
+      <div className="editorial-img">
+        <LazyImg src={imgSrc} alt={h}/>
+      </div>
+      <motion.div {...fade(0)} className="editorial-copy">
+        <span className="editorial-num">{num}</span>
+        <p className="t-label" style={{marginBottom:'16px'}}>{label}</p>
+        <h2 className="editorial-h2">{h}<em>{em}</em></h2>
+        <div className="editorial-divider"/>
+        <p className="t-body" style={{marginBottom:'36px',maxWidth:'380px'}}>{body}</p>
+        {cta&&(
+          <a href={ctaHref} className="btn-ghost"
+            style={{color:'var(--gold)',borderColor:'rgba(212,175,55,0.28)'}}>
+            {cta} <ArrowRight size={13}/>
+          </a>
+        )}
+      </motion.div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   FULL BLEED
+════════════════════════════════════════════ */
+function FullBleed({ src, caption }) {
+  return (
+    <div className="fullbleed">
+      <div className="fullbleed-overlay"/>
+      <LazyImg src={src} alt={caption||''} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+      {caption&&<p className="fullbleed-caption">{caption}</p>}
+    </div>
+  )
+}
+
+/* ════════════════════════════════════════════
+   MENU
+════════════════════════════════════════════ */
+function MenuSection() {
+  const [active, setActive] = useState('Sunday Brunch')
+  const tabs = Object.keys(MENU)
+  return (
+    <section id="menu" className="menu-section">
+      <motion.div {...fade(0)} className="menu-header">
+        <div className="menu-header-inner">
+          <div>
+            <p className="t-label" style={{color:'var(--mocha)',marginBottom:'12px'}}>Curated For You</p>
+            <h2 className="menu-h2">Our <em>Menu</em></h2>
+          </div>
+          <div className="menu-tabs">
+            {tabs.map(t=>(
+              <button key={t} onClick={()=>setActive(t)}
+                className={`menu-tab${active===t?' active':''}`}>{t}</button>
+            ))}
+          </div>
+        </div>
+        <div style={{width:'100%',height:'1px',background:'rgba(107,79,58,0.1)',marginTop:'44px'}}/>
+      </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.ul key={active}
+          initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}}
+          transition={{duration:0.5}} className="menu-list">
+          {MENU[active].map((item,i)=>(
+            <motion.li key={item.name} {...fade(i*0.07)} className="menu-item">
+              <div className="menu-item-left">
+                <div className="menu-item-img">
+                  <LazyImg src={item.img} alt={item.name}/>
+                </div>
+                <div>
+                  <p className="menu-item-name">{item.name}</p>
+                  <p className="menu-item-desc">{item.desc}</p>
+                  {item.tag&&<span className="menu-item-tag">{item.tag}</span>}
+                </div>
+              </div>
+              <p className="menu-item-price">{item.price}</p>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </AnimatePresence>
+      <motion.div {...fade(0.2)} style={{textAlign:'center',marginTop:'52px'}}>
+        <a href="https://wa.me/923154674321?text=Hi%2C+I%27d+like+the+full+menu+for+Portobello+Caf%C3%A9"
+          target="_blank" rel="noopener noreferrer" className="btn-ghost"
+          style={{color:'var(--mocha)',borderColor:'rgba(107,79,58,0.22)',fontSize:'10px',letterSpacing:'0.2em'}}>
+          <MessageCircle size={13}/> Get Full Menu on WhatsApp <ArrowRight size={13}/>
+        </a>
+      </motion.div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   BRUNCH
+════════════════════════════════════════════ */
+function Brunch() {
+  return (
+    <section id="brunch" className="brunch-section">
+      <div className="brunch-grid">
+        <motion.div {...fadeL(0)} className="brunch-img-stack">
+          <div className="main-img"><LazyImg src={f2} alt="Sunday Brunch spread"/></div>
+          <div className="sm-img"><LazyImg src={d5} alt="Eggs Benedict"/></div>
+          <div className="sm-img"><LazyImg src={c1} alt="Artisan coffee"/></div>
+        </motion.div>
+        <motion.div {...fade(0.15)}>
+          <p className="t-label" style={{color:'var(--mocha)',marginBottom:'14px'}}>Every Sunday</p>
+          <h2 className="brunch-h2">The Sunday<em>Brunch.</em></h2>
+          <p className="t-body" style={{color:'rgba(26,18,8,0.5)',maxWidth:'400px'}}>
+            Faisalabad's most talked-about weekend ritual. A curated continental spread,
+            perfectly poured coffee, and the kind of unhurried morning that makes Sunday
+            the best day of the week.
+          </p>
+          <div className="brunch-meta">
+            {[{l:'Time',v:'11 AM – 2 PM'},{l:'Day',v:'Every Sunday'},{l:'Booking',v:'Recommended'}].map(m=>(
+              <div key={m.l}>
+                <p className="brunch-meta-label">{m.l}</p>
+                <p className="brunch-meta-val">{m.v}</p>
+              </div>
+            ))}
+          </div>
+          <a href="#reserve" className="btn-primary"
+            style={{background:'var(--mocha)',boxShadow:'0 8px 32px rgba(107,79,58,0.22)'}}>
+            <Calendar size={13}/> Reserve Your Sunday Table
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   HI-TEA
+════════════════════════════════════════════ */
+function HiTea() {
+  const cards = [
+    { img:d4,  title:'Hi-Tea for Two',    sub:'Finger sandwiches, scones, macarons, mini pastries & bottomless tea' },
+    { img:d3,  title:'Molten Lava Cake',  sub:'The dessert Faisalabad talks about. Warm chocolate fondant, vanilla ice cream' },
+    { img:c2,  title:'Portobello Tiramisu', sub:'House-made, espresso-soaked, mascarpone cream. A signature since day one' },
+  ]
+  return (
+    <section id="hitea" className="hitea-strip">
+      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+        <motion.div {...fade(0)} style={{marginBottom:'clamp(40px,5vh,64px)'}}>
+          <p className="t-label" style={{marginBottom:'14px'}}>Weekend Ritual</p>
+          <h2 className="t-display" style={{fontSize:'clamp(40px,5vw,72px)',color:'var(--white)'}}>
+            Hi-Tea & <em style={{fontStyle:'italic',color:'var(--gold)'}}>Sweet Things</em>
+          </h2>
+          <p className="t-body" style={{maxWidth:'460px',marginTop:'16px'}}>
+            From afternoon Hi-Tea spreads to the city's most iconic Molten Lava Cake —
+            Portobello does dessert like nowhere else in Faisalabad.
+          </p>
+        </motion.div>
+        <div className="hitea-inner">
+          {cards.map((c,i)=>(
+            <motion.div key={c.title} {...fade(i*0.1)} className="hitea-card">
+              <LazyImg src={c.img} alt={c.title}/>
+              <div className="hitea-card-overlay"/>
+              <div className="hitea-gold-line"/>
+              <div className="hitea-card-copy">
+                <p className="hitea-card-title">{c.title}</p>
+                <p className="hitea-card-sub">{c.sub}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div {...fade(0.3)} style={{textAlign:'center',marginTop:'44px'}}>
+          <a href="#reserve" className="btn-primary">
+            <Calendar size={13}/> Book Hi-Tea
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   REVIEWS
+════════════════════════════════════════════ */
+function Reviews() {
+  const [start, setStart] = useState(0)
+  const perPage = typeof window!=='undefined'&&window.innerWidth<960 ? 1 : 3
+  const max = REVIEWS.length - perPage
+  const prev = ()=>setStart(s=>Math.max(0,s-1))
+  const next = ()=>setStart(s=>Math.min(max,s+1))
+  useEffect(()=>{
+    const t = setInterval(()=>setStart(s=>(s>=max?0:s+1)), 5000)
+    return ()=>clearInterval(t)
+  },[max])
+  return (
+    <section className="reviews-section">
+      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+        <motion.div {...fade(0)} style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',flexWrap:'wrap',gap:'24px',marginBottom:'48px'}}>
+          <div>
+            <p className="t-label" style={{marginBottom:'14px'}}>Guest Reviews</p>
+            <h2 className="t-display" style={{fontSize:'clamp(38px,5vw,68px)',color:'var(--white)'}}>
+              What Our <em style={{fontStyle:'italic',color:'var(--gold)'}}>Guests Say</em>
+            </h2>
+          </div>
+          <div className="review-nav">
+            <button onClick={prev} className="review-nav-btn"><ChevronLeft size={18}/></button>
+            <button onClick={next} className="review-nav-btn"><ChevronRight size={18}/></button>
+          </div>
+        </motion.div>
+        <div className="review-track-wrap">
+          <div className="review-track"
+            style={{transform:`translateX(calc(-${start*(100/perPage)}% - ${start*20/perPage}px))`}}>
+            {REVIEWS.map((r,i)=>(
+              <motion.div key={r.name} {...fade(i*0.08)} className="review-card">
+                <div className="review-stars">
+                  {Array(r.r).fill(0).map((_,j)=><Star key={j} size={14} fill="#d4af37" color="#d4af37"/>)}
+                </div>
+                <p className="review-quote">"{r.text}"</p>
+                <p className="review-author">— {r.name}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   EVENTS
+════════════════════════════════════════════ */
+function Events() {
+  return (
+    <section id="events" className="events-section">
+      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+        <motion.div {...fade(0)}>
+          <p className="t-label" style={{marginBottom:'14px'}}>Private & Corporate</p>
+          <h2 className="t-display" style={{fontSize:'clamp(40px,5vw,72px)',color:'var(--white)'}}>
+            Host Your <em style={{fontStyle:'italic',color:'var(--gold)'}}>Event</em>
+          </h2>
+          <p className="t-body" style={{maxWidth:'460px',marginTop:'18px'}}>
+            From intimate birthday dinners to corporate events for 80+, Portobello Café
+            offers a venue at Do Burj Plaza that speaks for itself.
+          </p>
+        </motion.div>
+        <div className="events-grid">
+          {[
+            { img:f5, icon:Wine,  title:'Private Celebrations', desc:'Birthdays, anniversaries, family gatherings. Custom menus. A setting that feels personal and special.' },
+            { img:f6, icon:Users, title:'Corporate Dinners',    desc:'Impress your clients in a venue that reflects your standards. AV support, custom menus, seamless service.' },
+          ].map((e,i)=>(
+            <motion.div key={e.title} {...fade(i*0.12)} className="event-card">
+              <LazyImg src={e.img} alt={e.title}/>
+              <div className="event-overlay"/>
+              <div className="event-top-line"/>
+              <div className="event-copy">
+                <e.icon size={26} className="event-icon"/>
+                <h3 className="event-title">{e.title}</h3>
+                <p className="event-desc">{e.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   RESERVE
+════════════════════════════════════════════ */
+function Reserve() {
+  const [form, setForm] = useState({name:'',phone:'',email:'',date:'',time:'',guests:'2',type:'Dinner',notes:''})
+  const [sent, setSent] = useState(false)
+  const handle = e => setForm(f=>({...f,[e.target.name]:e.target.value}))
+  const submit = e => {
+    e.preventDefault()
+    const msg = encodeURIComponent(
+      `*Portobello Café — Reservation*\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email||'N/A'}\nDate: ${form.date}\nTime: ${form.time}\nGuests: ${form.guests}\nOccasion: ${form.type}\nNotes: ${form.notes||'None'}`
+    )
+    window.open(`https://wa.me/923154674321?text=${msg}`,'_blank')
+    setSent(true); setTimeout(()=>setSent(false),5000)
+  }
+  return (
+    <section id="reserve" className="reserve-section">
+      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+        <motion.div {...fade(0)}>
+          <p className="t-label" style={{color:'var(--mocha)',marginBottom:'14px'}}>Secure Your Seat</p>
+          <h2 style={{fontFamily:'var(--serif)',fontSize:'clamp(40px,5vw,72px)',fontWeight:400,lineHeight:0.92,color:'var(--ink)'}}>
+            Book a <em style={{fontStyle:'italic',color:'var(--mocha)'}}>Table</em>
+          </h2>
+          <p style={{fontFamily:'var(--sans)',fontSize:'13px',fontWeight:300,color:'rgba(26,18,8,0.42)',marginTop:'14px'}}>
+            Confirmed via WhatsApp within 30 minutes.
+          </p>
+        </motion.div>
+        <div className="reserve-grid">
+          <motion.div {...fadeL(0.1)}>
+            <div className="reserve-info-block">
+              <h3 className="reserve-info-h3">Opening Hours</h3>
+              {HOURS.map(h=>(
+                <div key={h.day} className={`hours-row${h.hi?' hi':''}`}>
+                  <span className="day">{h.day}</span>
+                  <span className="time">{h.time}</span>
+                </div>
+              ))}
+            </div>
+            <div className="reserve-info-block">
+              <h3 className="reserve-info-h3">Contact</h3>
+              {[
+                { icon:Phone,         lines:[{text:'041-8555583', href:'tel:+92418555583'},{text:'041-8555584', href:'tel:+92418555584'}] },
+                { icon:MessageCircle, lines:[{text:'+92 315 4674321 (WhatsApp)', href:'https://wa.me/923154674321'}] },
+                { icon:MapPin,        lines:[{text:'Do Burj Plaza, Faisalabad', href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad'}] },
+                { icon:Clock,         lines:[{text:'Sunday Brunch: 11 AM – 2 PM', href:null}] },
+              ].map((c,i)=>(
+                <div key={i} className="contact-row">
+                  <c.icon size={14} className="contact-icon"/>
+                  <div>
+                    {c.lines.map(l=>
+                      l.href
+                        ? <a key={l.text} href={l.href} target={l.href.startsWith('http')?'_blank':undefined}
+                            rel={l.href.startsWith('http')?'noopener noreferrer':undefined}
+                            style={{fontSize:'13px',fontWeight:300,color:'rgba(247,243,238,0.42)',lineHeight:'1.65',display:'block',textDecoration:'none',transition:'color 0.2s'}}
+                            onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
+                            onMouseLeave={e=>e.currentTarget.style.color='rgba(247,243,238,0.42)'}>
+                            {l.text}
+                          </a>
+                        : <p key={l.text} style={{fontSize:'13px',fontWeight:300,color:'rgba(247,243,238,0.42)',lineHeight:'1.65'}}>{l.text}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div {...fade(0.15)}>
+            <form onSubmit={submit} className="pb-form">
+              <div className="form-row">
+                <div>
+                  <label className="form-label">Full Name *</label>
+                  <input name="name" required value={form.name} onChange={handle} placeholder="Your name" className="pb-input"/>
+                </div>
+                <div>
+                  <label className="form-label">Phone *</label>
+                  <input name="phone" required value={form.phone} onChange={handle} placeholder="03xx xxxxxxx" className="pb-input"/>
+                </div>
+              </div>
+              <div className="form-row-1">
+                <label className="form-label">Email (Optional)</label>
+                <input name="email" type="email" value={form.email} onChange={handle} placeholder="your@email.com" className="pb-input"/>
+              </div>
+              <div className="form-row-3">
+                <div>
+                  <label className="form-label">Date *</label>
+                  <input name="date" type="date" required value={form.date} onChange={handle} className="pb-input"/>
+                </div>
+                <div>
+                  <label className="form-label">Time *</label>
+                  <input name="time" type="time" required value={form.time} onChange={handle} className="pb-input"/>
+                </div>
+                <div>
+                  <label className="form-label">Guests *</label>
+                  <select name="guests" value={form.guests} onChange={handle} className="pb-input">
+                    {['1','2','3','4','5','6','7','8','10','12','15','20+'].map(n=><option key={n}>{n}</option>)}
+                  </select>
+                </div>
+              </div>
+              <div className="form-row-1">
+                <label className="form-label">Occasion</label>
+                <select name="type" value={form.type} onChange={handle} className="pb-input">
+                  {['Dinner','Sunday Brunch','Hi-Tea','Birthday','Anniversary','Corporate Dinner','Private Event','Other'].map(t=><option key={t}>{t}</option>)}
+                </select>
+              </div>
+              <div className="form-row-1">
+                <label className="form-label">Special Requests</label>
+                <textarea name="notes" value={form.notes} onChange={handle} rows={3}
+                  placeholder="Dietary requirements, seating preferences, occasion details..."
+                  className="pb-input" style={{resize:'vertical'}}/>
+              </div>
+              <button type="submit" className="form-submit">
+                <MessageCircle size={14}/>
+                {sent?'Opening WhatsApp…':'Confirm Reservation via WhatsApp'}
+              </button>
+              <p style={{fontSize:'11px',fontWeight:300,color:'rgba(107,79,58,0.32)',textAlign:'center',marginTop:'13px'}}>
+                Or call: <a href="tel:+92418555583" style={{color:'rgba(107,79,58,0.5)',textDecoration:'none'}}>041-8555583</a>
+                {' · '}
+                <a href="tel:+92418555584" style={{color:'rgba(107,79,58,0.5)',textDecoration:'none'}}>041-8555584</a>
+              </p>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════
+   MAP
+════════════════════════════════════════════ */
+function MapSection() {
+  return (
+    <div className="map-section">
+      <div className="map-badge">
+        <p className="t-label" style={{marginBottom:'6px'}}>Find Us</p>
+        <p style={{fontFamily:'var(--serif)',fontSize:'22px',color:'var(--white)',fontWeight:400}}>Do Burj Plaza</p>
+        <p style={{fontSize:'12px',fontWeight:300,color:'rgba(255,255,255,0.32)',marginTop:'4px'}}>Faisalabad, Pakistan</p>
+      </div>
+      <iframe title="Portobello Café" loading="lazy" allowFullScreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0!2d73.0851!3d31.4504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391813cd6d3a6d2f%3A0x475c7c63e61d4b52!2sDo%20Burj%20Plaza%2C%20Faisalabad!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"/>
+    </div>
+  )
+}
+
+/* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+function Footer() {
+  return (
+    <footer className="footer">
+      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+        <div className="footer-top">
+          <div>
+            <p className="footer-brand-name">Portobello</p>
+            <p className="footer-brand-sub">Café · Continental Dining · Faisalabad</p>
+            <p style={{fontSize:'12px',fontWeight:300,color:'rgba(255,255,255,0.28)',lineHeight:'1.85',maxWidth:'240px'}}>
+              Brick walls, dark wood, gourmet burgers, hand-cut steaks, and the city's most iconic Molten Lava Cake.
+            </p>
+            <a href="https://www.facebook.com/PortobelloPK/" target="_blank" rel="noopener noreferrer"
+              style={{display:'inline-flex',alignItems:'center',justifyContent:'center',
+                width:'36px',height:'36px',border:'1px solid rgba(212,175,55,0.15)',
+                color:'rgba(212,175,55,0.45)',marginTop:'20px',transition:'all 0.3s'}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--gold)';e.currentTarget.style.color='var(--gold)'}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(212,175,55,0.15)';e.currentTarget.style.color='rgba(212,175,55,0.45)'}}>
+              <Instagram size={15}/>
+            </a>
+          </div>
+          <div>
+            <p className="footer-col-title">Navigate</p>
+            {['Menu','Sunday Brunch','Hi-Tea','Events','Reserve a Table'].map(l=>(
+              <a key={l} href={`#${l.toLowerCase().replace(/\s+/g,'-')}`} className="footer-link">{l}</a>
+            ))}
+          </div>
+          <div>
+            <p className="footer-col-title">Hours</p>
+            {HOURS.map(h=>(
+              <div key={h.day} style={{marginBottom:'10px'}}>
+                <p style={{fontSize:'11px',fontWeight:300,color:'rgba(255,255,255,0.18)',marginBottom:'2px'}}>{h.day}</p>
+                <p style={{fontSize:'12px',fontWeight:h.hi?500:300,color:h.hi?'var(--gold)':'rgba(255,255,255,0.35)'}}>{h.time}</p>
+              </div>
+            ))}
+          </div>
+          <div>
+            <p className="footer-col-title">Contact</p>
+            {[
+              { icon:Phone,         text:'041-8555583', href:'tel:+92418555583' },
+              { icon:Phone,         text:'041-8555584', href:'tel:+92418555584' },
+              { icon:MessageCircle, text:'+92 315 4674321', href:'https://wa.me/923154674321' },
+              { icon:MapPin,        text:'Do Burj Plaza, Faisalabad', href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad' },
+              { icon:Instagram,     text:'facebook.com/PortobelloPK', href:'https://www.facebook.com/PortobelloPK/' },
+            ].map((c,i)=>(
+              <div key={i} style={{display:'flex',gap:'10px',marginBottom:'13px',alignItems:'flex-start'}}>
+                <c.icon size={13} style={{color:'rgba(212,175,55,0.32)',flexShrink:0,marginTop:'2px'}}/>
+                <a href={c.href} target={c.href.startsWith('http')?'_blank':undefined}
+                  rel={c.href.startsWith('http')?'noopener noreferrer':undefined}
+                  style={{fontSize:'12px',fontWeight:300,color:'rgba(255,255,255,0.25)',lineHeight:'1.65',textDecoration:'none',transition:'color 0.2s'}}
+                  onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
+                  onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.25)'}>
+                  {c.text}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p className="footer-copy">© 2025 Portobello Café, Faisalabad. All rights reserved.</p>
+          <p className="footer-copy">Do Burj Plaza · Gourmet Burgers · Steaks · Sunday Brunch</p>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+/* ════════════════════════════════════════════
+   WA FLOAT
+════════════════════════════════════════════ */
+function WAFloat() {
+  const [show, setShow] = useState(false)
+  useEffect(()=>{ const t=setTimeout(()=>setShow(true),2500); return ()=>clearTimeout(t) },[])
+  return (
+    <AnimatePresence>
+      {show&&(
+        <motion.a
+          initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}}
+          exit={{scale:0,opacity:0}} transition={{type:'spring',stiffness:260,damping:20}}
+          href="https://wa.me/923154674321?text=Hi%2C+I%27d+like+to+make+a+reservation+at+Portobello+Caf%C3%A9"
+          target="_blank" rel="noopener noreferrer"
+          className="wa-float" title="Chat on WhatsApp">
+          <MessageCircle size={24} color="#fff"/>
+        </motion.a>
+      )}
+    </AnimatePresence>
+  )
+}
+
+/* ════════════════════════════════════════════
+   PAGE
+════════════════════════════════════════════ */
+export default function Home() {
+  const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+
+  useEffect(()=>{
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60)
+      const sections = NAV_SECTIONS
+      let current = ''
+      for (const id of sections) {
+        const el = document.getElementById(id)
+        if (el && window.scrollY >= el.offsetTop - 120) current = id
+      }
+      setActiveSection(current)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  },[])
+
+  return (
+    <>
+      <Nav scrolled={scrolled} activeSection={activeSection}/>
+      <Hero/>
+      <Marquee/>
+      <Editorial
+        imgSrc={f3} num="01" flip={false}
+        label="Our Story"
+        h="A Café That Feels Like"
+        em="Coming Home."
+        body="Born from a love of unhurried meals and honest cooking, Portobello Café has been Faisalabad's quiet landmark since 2015. Brick walls, dark wood, warm lighting — a space where the city slows down and food does the talking."
+        cta="Reserve a Table" ctaHref="#reserve"
+      />
+      <FullBleed src={f4} caption="Every detail, considered."/>
+      <MenuSection/>
+      <Editorial
+        imgSrc={f1} num="02" flip={true}
+        label="Sunday Ritual"
+        h="The Brunch That Became"
+        em="A Tradition."
+        body="What started as a weekend special became Faisalabad's most anticipated Sunday morning. Eggs Benedict, French Toast, bottomless coffee. Arrive at 11. Linger until 2. You've earned it."
+        cta="See the Brunch Menu" ctaHref="#brunch"
+      />
+      <Brunch/>
+      <HiTea/>
+      <FullBleed src={f2} caption="Rustic warmth. Continental soul."/>
+      <Reviews/>
+      <Events/>
+      <Reserve/>
+      <MapSection/>
+      <Footer/>
+      <WAFloat/>
+    </>
+  )
+}
+JSX
+
+echo "✅ Files patched. Building..."
+cd "$DIR" && pnpm build
+
+echo "📦 Committing & pushing..."
+git add -A && git commit -m "ux: lazy images, tel: links, active nav, font preload, clickable logo" && git push origin main
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "✅ Done. Live in ~60s — Cmd+Shift+R"
+echo "   What changed:"
+echo "   • Nav logo scrolls to top"
+echo "   • Active nav highlights on scroll"
+echo "   • All phone numbers are tap-to-call"
+echo "   • WhatsApp links in footer & contact"
+echo "   • All below-fold images lazy load"
+echo "   • Font preloaded — no more FOUT"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+SCRIPT
+
+chmod +x ~/Desktop/portobello-ux-patch.sh
+echo "✅ Script ready. Run with:"
+echo "   bash ~/Desktop/portobello-ux-patch.sh"

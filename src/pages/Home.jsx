@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ChevronLeft, ChevronRight, MessageCircle,
@@ -80,14 +80,39 @@ const REVIEWS = [
   { name:'Fatima A.',     r:5, text:'Sunday Brunch is a ritual now. Eggs Benedict every week. The coffee is always perfect and the staff remembers your order. Rare in this city.' },
 ]
 
-/* ── ANIMATION HELPERS ── */
+const NAV_SECTIONS = ['menu','brunch','hitea','events','reserve']
+
 const fade  = (d=0) => ({ initial:{opacity:0,y:32}, whileInView:{opacity:1,y:0}, viewport:{once:true,margin:'-80px'}, transition:{duration:1,delay:d,ease:[0.22,1,0.36,1]} })
 const fadeL = (d=0) => ({ initial:{opacity:0,x:-32}, whileInView:{opacity:1,x:0}, viewport:{once:true,margin:'-80px'}, transition:{duration:1,delay:d,ease:[0.22,1,0.36,1]} })
+
+/* ── LAZY IMAGE ── */
+function LazyImg({ src, alt, className, style }) {
+  const ref = useRef(null)
+  const [loaded, setLoaded] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.src = src; obs.disconnect() }
+    }, { rootMargin: '200px' })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [src])
+  return (
+    <img
+      ref={ref}
+      alt={alt || ''}
+      className={className}
+      style={{ ...style, transition: 'opacity 0.4s', opacity: loaded ? 1 : 0 }}
+      onLoad={() => setLoaded(true)}
+    />
+  )
+}
 
 /* ════════════════════════════════════════════
    NAV
 ════════════════════════════════════════════ */
-function Nav({ scrolled }) {
+function Nav({ scrolled, activeSection }) {
   const [open, setOpen] = useState(false)
   const links = [
     { label:'Menu',    href:'#menu'    },
@@ -99,15 +124,27 @@ function Nav({ scrolled }) {
   return (
     <>
       <nav className={`nav${scrolled?' scrolled':''}`}>
-        <div className="nav-logo">
+        <a href="#" className="nav-logo" style={{textDecoration:'none',cursor:'pointer'}}>
           PORTOBELLO
           <span>Café · Faisalabad</span>
-        </div>
+        </a>
         <ul className="nav-links">
-          {links.map(l=><li key={l.label}><a href={l.href}>{l.label}</a></li>)}
+          {links.map(l=>(
+            <li key={l.label}>
+              <a href={l.href}
+                style={{
+                  borderBottom: activeSection===l.href.replace('#','') ? '1px solid var(--gold)' : '1px solid transparent',
+                  paddingBottom:'2px',
+                  color: activeSection===l.href.replace('#','') ? 'var(--gold)' : '',
+                  transition:'all 0.3s'
+                }}>
+                {l.label}
+              </a>
+            </li>
+          ))}
         </ul>
         <a href="#reserve" className="nav-cta">Reserve</a>
-        <button className="mob-toggle" onClick={()=>setOpen(o=>!o)}>
+        <button className="mob-toggle" aria-label="Toggle menu" onClick={()=>setOpen(o=>!o)}>
           {open?'✕':'☰'}
         </button>
       </nav>
@@ -123,13 +160,23 @@ function Nav({ scrolled }) {
             {links.map(l=>(
               <a key={l.label} href={l.href} onClick={()=>setOpen(false)}
                 style={{fontFamily:'var(--sans)',fontSize:'13px',letterSpacing:'0.18em',
-                  textTransform:'uppercase',color:'rgba(255,255,255,0.5)',fontWeight:500}}>
+                  textTransform:'uppercase',
+                  color: activeSection===l.href.replace('#','') ? 'var(--gold)' : 'rgba(255,255,255,0.5)',
+                  fontWeight:500}}>
                 {l.label}
               </a>
             ))}
-            <a href="tel:04118555583"
-              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'var(--gold)'}}>
-              041-8555583 / 041-8555584
+            <a href="tel:+92418555583"
+              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'var(--gold)',display:'flex',alignItems:'center',gap:'6px'}}>
+              <Phone size={12}/> 041-8555583
+            </a>
+            <a href="tel:+92418555584"
+              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'rgba(212,175,55,0.6)',display:'flex',alignItems:'center',gap:'6px'}}>
+              <Phone size={12}/> 041-8555584
+            </a>
+            <a href="https://wa.me/923154674321" target="_blank" rel="noopener noreferrer"
+              style={{fontFamily:'var(--sans)',fontSize:'13px',color:'rgba(212,175,55,0.6)',display:'flex',alignItems:'center',gap:'6px'}}>
+              <MessageCircle size={12}/> WhatsApp
             </a>
           </motion.div>
         )}
@@ -155,7 +202,6 @@ function Hero() {
           style={{opacity:i===slide?1:0,zIndex:i===slide?1:0}}/>
       ))}
       <div className="hero-overlay" style={{zIndex:2}}/>
-
       <div className="hero-content" style={{zIndex:3}}>
         <motion.div className="hero-eyebrow"
           initial={{opacity:0,x:-20}} animate={{opacity:1,x:0}} transition={{duration:0.9,delay:0.3}}>
@@ -167,7 +213,6 @@ function Hero() {
             </motion.span>
           </AnimatePresence>
         </motion.div>
-
         <AnimatePresence mode="wait">
           <motion.h1 key={slide} className="hero-h1"
             initial={{opacity:0,y:36}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-24}}
@@ -176,13 +221,11 @@ function Hero() {
             <em>{s.em}</em>
           </motion.h1>
         </AnimatePresence>
-
         <motion.p className="hero-sub"
           initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.9,delay:0.5}}>
           Brick walls. Dark wood. Gourmet burgers, hand-cut steaks, legendary brunch,
           and a Molten Lava Cake you'll dream about. Do Burj Plaza, Faisalabad.
         </motion.p>
-
         <motion.div className="hero-actions"
           initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{duration:0.9,delay:0.65}}>
           <a href="#reserve" className="btn-primary">
@@ -193,14 +236,12 @@ function Hero() {
           </a>
         </motion.div>
       </div>
-
       <div className="slide-dots" style={{zIndex:3}}>
         {SLIDES.map((_,i)=>(
           <button key={i} onClick={()=>setSlide(i)}
             className={`slide-dot${i===slide?' active':''}`}/>
         ))}
       </div>
-
       <div className="hero-scroll" style={{zIndex:3}}>
         <div className="hero-scroll-line"/>
         <span>Scroll</span>
@@ -239,7 +280,7 @@ function Editorial({ flip, imgSrc, num, label, h, em, body, cta, ctaHref }) {
   return (
     <section className={`editorial${flip?' flip':''}`}>
       <div className="editorial-img">
-        <img src={imgSrc} alt={h}/>
+        <LazyImg src={imgSrc} alt={h}/>
       </div>
       <motion.div {...fade(0)} className="editorial-copy">
         <span className="editorial-num">{num}</span>
@@ -265,7 +306,7 @@ function FullBleed({ src, caption }) {
   return (
     <div className="fullbleed">
       <div className="fullbleed-overlay"/>
-      <img src={src} alt={caption||''}/>
+      <LazyImg src={src} alt={caption||''} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
       {caption&&<p className="fullbleed-caption">{caption}</p>}
     </div>
   )
@@ -294,7 +335,6 @@ function MenuSection() {
         </div>
         <div style={{width:'100%',height:'1px',background:'rgba(107,79,58,0.1)',marginTop:'44px'}}/>
       </motion.div>
-
       <AnimatePresence mode="wait">
         <motion.ul key={active}
           initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}}
@@ -303,7 +343,7 @@ function MenuSection() {
             <motion.li key={item.name} {...fade(i*0.07)} className="menu-item">
               <div className="menu-item-left">
                 <div className="menu-item-img">
-                  <img src={item.img} alt={item.name}/>
+                  <LazyImg src={item.img} alt={item.name}/>
                 </div>
                 <div>
                   <p className="menu-item-name">{item.name}</p>
@@ -316,7 +356,6 @@ function MenuSection() {
           ))}
         </motion.ul>
       </AnimatePresence>
-
       <motion.div {...fade(0.2)} style={{textAlign:'center',marginTop:'52px'}}>
         <a href="https://wa.me/923154674321?text=Hi%2C+I%27d+like+the+full+menu+for+Portobello+Caf%C3%A9"
           target="_blank" rel="noopener noreferrer" className="btn-ghost"
@@ -336,9 +375,9 @@ function Brunch() {
     <section id="brunch" className="brunch-section">
       <div className="brunch-grid">
         <motion.div {...fadeL(0)} className="brunch-img-stack">
-          <div className="main-img"><img src={f2} alt="Sunday Brunch spread"/></div>
-          <div className="sm-img"><img src={d5} alt="Eggs Benedict"/></div>
-          <div className="sm-img"><img src={c1} alt="Artisan coffee"/></div>
+          <div className="main-img"><LazyImg src={f2} alt="Sunday Brunch spread"/></div>
+          <div className="sm-img"><LazyImg src={d5} alt="Eggs Benedict"/></div>
+          <div className="sm-img"><LazyImg src={c1} alt="Artisan coffee"/></div>
         </motion.div>
         <motion.div {...fade(0.15)}>
           <p className="t-label" style={{color:'var(--mocha)',marginBottom:'14px'}}>Every Sunday</p>
@@ -367,7 +406,7 @@ function Brunch() {
 }
 
 /* ════════════════════════════════════════════
-   HI-TEA STRIP
+   HI-TEA
 ════════════════════════════════════════════ */
 function HiTea() {
   const cards = [
@@ -380,8 +419,7 @@ function HiTea() {
       <div style={{maxWidth:'1200px',margin:'0 auto'}}>
         <motion.div {...fade(0)} style={{marginBottom:'clamp(40px,5vh,64px)'}}>
           <p className="t-label" style={{marginBottom:'14px'}}>Weekend Ritual</p>
-          <h2 className="t-display"
-            style={{fontSize:'clamp(40px,5vw,72px)',color:'var(--white)'}}>
+          <h2 className="t-display" style={{fontSize:'clamp(40px,5vw,72px)',color:'var(--white)'}}>
             Hi-Tea & <em style={{fontStyle:'italic',color:'var(--gold)'}}>Sweet Things</em>
           </h2>
           <p className="t-body" style={{maxWidth:'460px',marginTop:'16px'}}>
@@ -392,7 +430,7 @@ function HiTea() {
         <div className="hitea-inner">
           {cards.map((c,i)=>(
             <motion.div key={c.title} {...fade(i*0.1)} className="hitea-card">
-              <img src={c.img} alt={c.title}/>
+              <LazyImg src={c.img} alt={c.title}/>
               <div className="hitea-card-overlay"/>
               <div className="hitea-gold-line"/>
               <div className="hitea-card-copy">
@@ -482,7 +520,7 @@ function Events() {
             { img:f6, icon:Users, title:'Corporate Dinners',    desc:'Impress your clients in a venue that reflects your standards. AV support, custom menus, seamless service.' },
           ].map((e,i)=>(
             <motion.div key={e.title} {...fade(i*0.12)} className="event-card">
-              <img src={e.img} alt={e.title}/>
+              <LazyImg src={e.img} alt={e.title}/>
               <div className="event-overlay"/>
               <div className="event-top-line"/>
               <div className="event-copy">
@@ -539,14 +577,26 @@ function Reserve() {
             <div className="reserve-info-block">
               <h3 className="reserve-info-h3">Contact</h3>
               {[
-                { icon:Phone,         lines:['041-8555583','041-8555584'] },
-                { icon:MessageCircle, lines:['+92 315 4674321 (WhatsApp)'] },
-                { icon:MapPin,        lines:['Do Burj Plaza, Faisalabad'] },
-                { icon:Clock,         lines:['Sunday Brunch: 11 AM – 2 PM'] },
+                { icon:Phone,         lines:[{text:'041-8555583', href:'tel:+92418555583'},{text:'041-8555584', href:'tel:+92418555584'}] },
+                { icon:MessageCircle, lines:[{text:'+92 315 4674321 (WhatsApp)', href:'https://wa.me/923154674321'}] },
+                { icon:MapPin,        lines:[{text:'Do Burj Plaza, Faisalabad', href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad'}] },
+                { icon:Clock,         lines:[{text:'Sunday Brunch: 11 AM – 2 PM', href:null}] },
               ].map((c,i)=>(
                 <div key={i} className="contact-row">
                   <c.icon size={14} className="contact-icon"/>
-                  <div>{c.lines.map(l=><p key={l} style={{fontSize:'13px',fontWeight:300,color:'rgba(247,243,238,0.42)',lineHeight:'1.65'}}>{l}</p>)}</div>
+                  <div>
+                    {c.lines.map(l=>
+                      l.href
+                        ? <a key={l.text} href={l.href} target={l.href.startsWith('http')?'_blank':undefined}
+                            rel={l.href.startsWith('http')?'noopener noreferrer':undefined}
+                            style={{fontSize:'13px',fontWeight:300,color:'rgba(247,243,238,0.42)',lineHeight:'1.65',display:'block',textDecoration:'none',transition:'color 0.2s'}}
+                            onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
+                            onMouseLeave={e=>e.currentTarget.style.color='rgba(247,243,238,0.42)'}>
+                            {l.text}
+                          </a>
+                        : <p key={l.text} style={{fontSize:'13px',fontWeight:300,color:'rgba(247,243,238,0.42)',lineHeight:'1.65'}}>{l.text}</p>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -601,7 +651,9 @@ function Reserve() {
                 {sent?'Opening WhatsApp…':'Confirm Reservation via WhatsApp'}
               </button>
               <p style={{fontSize:'11px',fontWeight:300,color:'rgba(107,79,58,0.32)',textAlign:'center',marginTop:'13px'}}>
-                Or call: 041-8555583 · 041-8555584
+                Or call: <a href="tel:+92418555583" style={{color:'rgba(107,79,58,0.5)',textDecoration:'none'}}>041-8555583</a>
+                {' · '}
+                <a href="tel:+92418555584" style={{color:'rgba(107,79,58,0.5)',textDecoration:'none'}}>041-8555584</a>
               </p>
             </form>
           </motion.div>
@@ -669,14 +721,21 @@ function Footer() {
           <div>
             <p className="footer-col-title">Contact</p>
             {[
-              { icon:Phone,         text:'041-8555583\n041-8555584' },
-              { icon:MessageCircle, text:'+92 315 4674321' },
-              { icon:MapPin,        text:'Do Burj Plaza\nFaisalabad' },
-              { icon:Instagram,     text:'facebook.com/PortobelloPK' },
+              { icon:Phone,         text:'041-8555583', href:'tel:+92418555583' },
+              { icon:Phone,         text:'041-8555584', href:'tel:+92418555584' },
+              { icon:MessageCircle, text:'+92 315 4674321', href:'https://wa.me/923154674321' },
+              { icon:MapPin,        text:'Do Burj Plaza, Faisalabad', href:'https://maps.google.com/?q=Do+Burj+Plaza+Faisalabad' },
+              { icon:Instagram,     text:'facebook.com/PortobelloPK', href:'https://www.facebook.com/PortobelloPK/' },
             ].map((c,i)=>(
               <div key={i} style={{display:'flex',gap:'10px',marginBottom:'13px',alignItems:'flex-start'}}>
                 <c.icon size={13} style={{color:'rgba(212,175,55,0.32)',flexShrink:0,marginTop:'2px'}}/>
-                <p style={{fontSize:'12px',fontWeight:300,color:'rgba(255,255,255,0.25)',lineHeight:'1.65',whiteSpace:'pre-line'}}>{c.text}</p>
+                <a href={c.href} target={c.href.startsWith('http')?'_blank':undefined}
+                  rel={c.href.startsWith('http')?'noopener noreferrer':undefined}
+                  style={{fontSize:'12px',fontWeight:300,color:'rgba(255,255,255,0.25)',lineHeight:'1.65',textDecoration:'none',transition:'color 0.2s'}}
+                  onMouseEnter={e=>e.currentTarget.style.color='var(--gold)'}
+                  onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.25)'}>
+                  {c.text}
+                </a>
               </div>
             ))}
           </div>
@@ -717,14 +776,26 @@ function WAFloat() {
 ════════════════════════════════════════════ */
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+
   useEffect(()=>{
-    const h = ()=>setScrolled(window.scrollY>60)
-    window.addEventListener('scroll',h)
-    return ()=>window.removeEventListener('scroll',h)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60)
+      const sections = NAV_SECTIONS
+      let current = ''
+      for (const id of sections) {
+        const el = document.getElementById(id)
+        if (el && window.scrollY >= el.offsetTop - 120) current = id
+      }
+      setActiveSection(current)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   },[])
+
   return (
     <>
-      <Nav scrolled={scrolled}/>
+      <Nav scrolled={scrolled} activeSection={activeSection}/>
       <Hero/>
       <Marquee/>
       <Editorial
