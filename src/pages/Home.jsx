@@ -114,11 +114,7 @@ function Nav({ scrolled, activeSection }) {
   return (
     <>
       <nav className={`nav${scrolled?' scrolled':''}`}>
-        <a href="#" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}}
-          className="nav-logo" style={{textDecoration:'none',cursor:'pointer'}}>
-          PORTOBELLO
-          <span>Café · Faisalabad</span>
-        </a>
+        <a href="#" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:"smooth"})}} style={{textDecoration:"none",cursor:"pointer"}}><img src="/src/assets/images/logo.png" alt="Portobello" style={{height:"38px",width:"auto"}}/></a>
         <ul className="nav-links">
           {links.map(l=>(
             <li key={l.label}>
